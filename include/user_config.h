@@ -1,10 +1,15 @@
 #ifndef __USER_CONFIG_H__
 #define __USER_CONFIG_H__
 
-#define __version__     "0.1.0"
+#define __version__     "0.2.0"
 
 #define USE_OPTIMIZE_PRINTF
 #define WIFI_ENABLE_SOFTAP  true
+
+// LED
+#define LED_MUX                 PERIPHS_IO_MUX_GPIO2_U    
+#define LED_NUM                 2
+#define LED_FUNC                FUNC_GPIO2
 
 #endif
 
