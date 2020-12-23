@@ -98,6 +98,7 @@ void webadmin_index(Request *req, char *body, uint32_t body_length,
 
 
 static HttpRoute routes[] = {
+    {"FOTA",      "/",            fota_reboot        },
     {"OPTIONS",   "/",            webadmin_options   },
     {"GET",       "/",            webadmin_index     },
     {"GET",       "/favicon.ico", webadmin_favicon   },
