@@ -5,7 +5,6 @@
 #include "wifi.h"
 #include "params.h" 
 #include "debug.h"
-#include "mdns.h"
 #include "status.h"
 
 // SDK
@@ -25,16 +24,14 @@ static Params params;
 
 void statuscb() {
     INFO("WIFI Connected...\r\n");
-    INFO("%s v"__version__" started\r\n", params.device_name);
+    INFO("%s v"__version__" started\r\n", params.name);
 }
 
 
 void wifi_connect_cb(uint8_t status) {
     if(status == STATION_GOT_IP) {
-        mdns_start(&params);
         status_update(200, 200, 1, statuscb);
     } else {
-        espconn_mdns_close();
     }
 }
 
@@ -60,7 +57,7 @@ void user_init(void) {
         }
     }
     
-    params_print(&params);
+    PARAMS_PRINT(params);
     
     // Disable wifi led before infrared
     wifi_status_led_uninstall();
@@ -68,7 +65,7 @@ void user_init(void) {
     // Status LED
     status_init();
 
-    status_update(100, 100, 0, NULL);
+    status_update(700, 700, 0, NULL);
     wifi_start(&params, wifi_connect_cb);
 
     webadmin_start(&params);
