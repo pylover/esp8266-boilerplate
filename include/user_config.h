@@ -1,7 +1,7 @@
 #ifndef __USER_CONFIG_H__
 #define __USER_CONFIG_H__
 
-#define __version__     "0.2.0"
+#define __version__     "0.3.0"
 
 #define USE_OPTIMIZE_PRINTF
 #define WIFI_ENABLE_SOFTAP  true

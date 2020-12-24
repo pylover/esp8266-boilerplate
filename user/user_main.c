@@ -24,7 +24,6 @@ static Params params;
 
 void statuscb() {
     INFO("WIFI Connected...\r\n");
-    INFO("%s v"__version__" started\r\n", params.name);
 }
 
 
@@ -69,6 +68,7 @@ void user_init(void) {
     wifi_start(&params, wifi_connect_cb);
 
     webadmin_start(&params);
+    INFO("%s v"__version__" started\r\n", params.name);
 }
 
 

@@ -230,6 +230,10 @@ fota: map6user2
 	-curl -F firmware=@"$(SDK_PATH)/../bin/upgrade/user2.4096.new.6.bin" $(HOST)/firmware 
 	-echo
 
+.PHONY: rebootfota
+rebootfota:
+	-curl $(HOST)/ -XFOTA 
+
 .PHONY: flash_map6user2
 flash_map6user2: map6user2
 	$(ESPTOOL_WRITE) --flash_size 4MB-c1  \
